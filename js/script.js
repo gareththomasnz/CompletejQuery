@@ -53,7 +53,25 @@ $(function() {
       //$(".blue-box").show(1000);
       
 
-        $(".lightbox").delay(400).fadeIn(1000);
+        //$(".lightbox").delay(400).fadeIn(1000);
 
-
+        //$("#list").find("li").filter(":even").css("background-color", "rgba(180, 180, 30, 0.8)");
+        
+        //$("li").filter(function(index){
+        //        //return true;
+        //        return index % 3 === 0;
+        //        }).css("background-color", "rgba(180, 180, 30, 0.8)");
+        
+        //$("li").first().css("background-color", "rgba(180, 180, 30, 0.8)");
+        //$("li").last().css("background-color", "rgba(180, 180, 30, 0.8)");
+        
+        //$("li").eq(1).css("background-color", "rgba(180, 180, 30, 0.8)");
+        //$("li").eq(-1).css("background-color", "rgba(180, 180, 30, 0.8)");
+        
+        //$("li").not(":odd").css("background-color", "rgba(180, 180, 30, 0.8)");
+        
+        $("li").not(function(index){
+                return index % 3 === 2;
+                }).css("background-color", "rgba(180, 180, 30, 0.8)");
+        
       });
