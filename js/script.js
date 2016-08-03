@@ -70,8 +70,38 @@ $(function() {
         
         //$("li").not(":odd").css("background-color", "rgba(180, 180, 30, 0.8)");
         
-        $("li").not(function(index){
-                return index % 3 === 2;
-                }).css("background-color", "rgba(180, 180, 30, 0.8)");
+        //$("li").not(function(index){
+        //        return index % 3 === 2;
+        //        }).css("background-color", "rgba(180, 180, 30, 0.8)");
+        
+        //$("#list").find("li").css("background-color", "rgba(180, 180, 30, 0.8)");        
+        //$("#list").children("li").css("background-color", "rgba(180, 180, 30, 0.8)");    
+        //$("#list").parents().css("background-color", "rgba(180, 180, 30, 0.8)");    
+        //$("#list").siblings().css("background-color", "rgba(180, 180, 30, 0.8)");
+        //$("#list").prev().css("background-color", "rgba(180, 180, 30, 0.8)");
+        //$("#list").next().css("background-color", "rgba(180, 180, 30, 0.8)");
+        
+        //$("p").css("background-color", "rgba(180, 180, 30, 0.8");
+        
+        //$("h2, input[type='text']").css("background-color", "rgba(180, 180, 30, 0.8");
+        
+        //$("ul ul:first").append("<li>Append Sub Item</li>");     
+        //$("<li>Last Sub Item</li>").appendTo("ul ul:last");
+        //$("ul ul:first").prepend("<li>Prepend Sub Item</li>");
+        //$("ul ul").prepend("<li>Prepend Sub Item</li>");
+        //$("<li>Last Sub Item</li>").prependTo("ul ul:last");
+        
+        //$("<h4>Gareth Thomas</h4>").prependTo("#content");
+        
+        //$(".red-box").after("<div class='red-box'>");
+        //$(".blue-box").before("<div class='blue-box'>");
+        
+        //$(".blue-box").before(function(){
+        //        return "<div class='blue-box'>Blue 2</div>";
+        //        });
+        //
+        //$(".blue-box").before($(".red-box"));
+        
+        $("p").after($("#list"));
         
       });
