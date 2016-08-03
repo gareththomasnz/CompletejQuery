@@ -102,6 +102,6 @@ $(function() {
         //
         //$(".blue-box").before($(".red-box"));
         
-        $("p").after($("#list"));
+        //$("p").after($("#list"));
         
       });
