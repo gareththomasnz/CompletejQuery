@@ -1,5 +1,8 @@
 $(function() {
       
+      var form = $("#form");
+      enableFastFeedback(form);
+      
       $("#form").submit(function(event){
             var name = $("#name").val();
             var password = $("#password").val();
@@ -13,6 +16,59 @@ $(function() {
             
             });
       });
+
+function enableFastFeedback(formElement){
+      var nameInput = formElement.find("#name");
+      var passwordInput = formElement.find("#password");
+      var messageInput = formElement.find("#message");
+      var checkboxInput = formElement.find("#checkbox");
+      
+nameInput.blur(function(){
+      var name = $(this).val();
+      validateNameField(name, event);
+      
+      if(!isValidName(name)){
+            $(this).css("box-shadow", "0 0 4px #811");
+      }else{
+            $(this).css("box-shadow", "0 0 4px #181");
+      }
+      });
+
+passwordInput.blur(function(){
+      var password = $(this).val();
+      validatePasswordField(password, event);
+      
+      if(!isValidPassword(password)){
+            $(this).css("box-shadow", "0 0 4px #811");
+      }else{
+            $(this).css("box-shadow", "0 0 4px #181");
+      }
+      });
+      
+messageInput.blur(function(){
+      var message = $(this).val();
+      validatePasswordField(message, event);
+      
+      if(!isValidMessage(message)){
+            $(this).css("box-shadow", "0 0 4px #811");
+      }else{
+            $(this).css("box-shadow", "0 0 4px #181");
+      }
+      });
+
+checkboxInput.changed(function(){
+      var isChecked = $(this).is(":checked");
+      validateCheckboxField(isChecked, event);
+      
+      if(!isChecked){
+            $(this).add("label[for='cb']").css("box-shadow", "0 0 4px #811");
+      }else{
+            $(this).add("label[for='cb']").css("box-shadow", "0 0 4px #181");
+      }
+      });
+
+}
+
 
 function validateNameField(name, event){
 if(!isValidName(name)){
