@@ -40,4 +40,64 @@ $(function() {
         //        }else{}
         //        });
         
+        //$("#code").load("Text.txt");
+        //
+        //$("#code").load("noSuchFile.php", function(response, status){
+        //    if(status == "error"){
+        //          alert("No Such File!");
+        //    }
+        //    console.log(response);
+        //    });
+        //
+        
+        //var flickrApiUrl =  "https://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
+        //
+        //$.getJSON(flickrApiUrl, {
+        //    tags: "sun, beach",
+        //    tagmode: "any",
+        //    format: "json"
+        //}).done(function(data){
+        //    console.log(data);
+        //    $.each(data.items, function(index, item){
+        //          console.log(item);
+        //          $("<img>").attr("src", item.media.m).appendTo("#flickr");
+        //          if(index == 4){
+        //                return false;
+        //          }
+        //          });
+        //    }).fail(function(){
+        //    alert("Ajax call failed!");
+        //    });
+        
+        var pokemonUrl = "http://pokeapi.co/api/v2/generation/1";
+        var pokemonByName = "http://pokeapi.co/api/v2/pokemon/";
+        
+        $.getJSON(pokemonUrl).done(function(data){
+            console.log(data);
+            $.each(data.pokemon_species, function(index, pokemon){
+                  var name = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
+                  var link = $("<a>").attr("id", pokemon.name).attr("href", "#").append($("<strong>").text(name));
+                  var par = $("<p>").html("Pokemon species No: " + (index+1) + " is ").append(link);
+                  
+                  link.click(function(event){
+                        $.getJSON(pokemonByName + pokemon.name).done(function(details){
+                              console.log(details);
+                              var pokemonDiv = $("#pokemon-details");
+                              pokemonDiv.empty();
+                              pokemonDiv.append("<h2>" + name + "</h2>");
+                              pokemonDiv.append("<img src='" + details.sprites.front_default + "'>");
+                              pokemonDiv.append("<img src='" + details.sprites.back_default + "'>");
+                              pokemonDiv.append("<img src='" + details.sprites.front_shiny + "'>");
+                              pokemonDiv.append("<img src='" + details.sprites.back_shiny + "'>");                              
+                              });
+                        event.preventDefault();
+                        });
+                  
+                  par.appendTo("#pokemon");
+            });
+        }).fail(function(){
+            console.log("request to pokemon api failed");
+            }).always(function(){
+            console.log("pokemon is awesome");
+            });
       });
