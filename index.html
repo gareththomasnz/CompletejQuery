@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<script src="js/jquery-3.1.0.min.js"></script>
-	<script src="js/script4.js"></script>
+	<script src="js/formValidation.js"></script>
   <!--<script src="js/slideshow.js"></script>-->
   <!--<script src="js/lightbox.js"></script>-->  
 	<link rel="stylesheet" href="css/style.css">
@@ -83,22 +83,36 @@
               <li>Subitem 2</li>
           </ul>          
   </ul>
-			<form action="">
-        <input type="text" placeholder="Written Stuff"><br>
-				<input type="email" placeholder="Your best email"><br>
-        <input type="checkbox" name="cb" checked><label for="cb">For CB</label><br>
-        <input type="range" min="1" max="8" value="3"><br>
-        <textarea cols="30" rows="10"></textarea>
-                <br>
-        <select id="selection">
+			<form id="form" action="">
+        <input id="name" type="text" placeholder="Enter Your Name">
+        <span id="name-feedback" >name-feedback</span>
+        <br>
+        
+        <input id="password" type="password" placeholder="Enter Your Password">
+        <span id="password-feedback" >password-feedback</span>
+        <br>
+        
+				<input id="amount" type="range" min="1" max="9" value="5"><br>
+        
+        <textarea id="message" cols="30" rows="10"></textarea>
+        <span id="message-feedback">message-feedback</span>
+        <br>
+
+        <input id="checkbox" type="checkbox" name="cb" checked><label for="cb">Check Me</label><br>
+        <span id="checkbox-feedback" >checkbox-feedback</span>
+        <br>        
+        
+        <input id="submit" type="submit" value="Sign me up">
+        
+<!--        <select id="selection">
           <option>Option 1</option>
           <option>Option 2</option>
           <option>Option 3</option>
           <option>Option 4</option>
           <option>Option 5</option>
           <option>Option 6</option>
-        </select>
-        <input type="submit" value="Sign me up">
+        </select>-->
+        
 			</form>
         
 
